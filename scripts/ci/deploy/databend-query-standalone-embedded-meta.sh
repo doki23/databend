@@ -20,6 +20,6 @@ for bin in databend-query databend-meta; do
 done
 
 echo 'Start databend-query...'
-nohup target/${BUILD_PROFILE}/databend-query -c scripts/ci/deploy/config/databend-query-embedded-meta.toml &
+nohup target/${BUILD_PROFILE}/databend-query -c scripts/ci/deploy/config/databend-query-embedded-meta.toml --table-cache-enabled &
 echo "Waiting on databend-query 10 seconds..."
 python3 scripts/ci/wait_tcp.py --timeout 5 --port 3307
